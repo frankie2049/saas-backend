@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const dotenv = require('dotenv');
 
 // Load environment variables from .env file
@@ -10,7 +9,13 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+
+// CORS setup
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://saas-frontend-eight.vercel.app'); // 替换为 Vercel 部署的实际 URL
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
