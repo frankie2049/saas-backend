@@ -4,8 +4,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "npm install && npm run build",
-    "build": "your-build-command"
+    "heroku-postbuild": "npm install --prefix saas-frontend && npm run build --prefix saas-frontend",
+    "build": "echo 'No build step required for backend'"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
