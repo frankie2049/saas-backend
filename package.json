@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "heroku-postbuild": "npm install --prefix saas-frontend && npm run build --prefix saas-frontend",
-    "build": "echo 'No build step required for backend'"
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
